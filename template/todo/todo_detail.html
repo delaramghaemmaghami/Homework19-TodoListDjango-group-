@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Todo Details</title>
+{% endblock %}
+{% block content %}
+    <div class="container mt-5">
+            <table class="table table-striped mt-4 table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            Title
+                        </th>
+
+                        <th scope="col">
+                            Category
+                        </th>
+
+                        <th scope="col">
+                            Priority
+                        </th>
+
+                        <th scope="col">
+                            Description
+                        </th>
+
+                        <th scope="col">
+                            Create time
+                        </th>
+
+                        <th scope="col">
+                            Dead line
+                        </th>
+
+                        <th scope="col">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th >{{task.title}}</th>
+                        <th >{{task.category.category_name}}</th>
+                        <th >{{task.priority}}</th>
+                        <th >{{task.description}}</th>
+                        <th >{{task.create_time}}</th>
+                        <th >{{task.dead_line}}</th>
+                        <th>
+                            <a href="{% url 'todo_list' %}" class="btn btn-danger">Back</a>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+{% endblock %}

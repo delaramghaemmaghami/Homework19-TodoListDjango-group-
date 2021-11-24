@@ -1,0 +1,24 @@
+nav {
+    background-color: rgb(255,193,7);
+}
+
+.img {
+    background-image:url("https://cdn.searchenginejournal.com/wp-content/uploads/2021/08/marketing-productivity_-what-it-is-how-to-measure-it-610cf80ee849a-sej-1520x800.jpg");
+    height: 620px;
+    color: white;
+    opacity: 0.5;
+    background-repeat: no-repeat;
+}
+
+.row {
+    padding: 100px;
+}
+
+h1 {
+    color: orange;
+}
+
+img {
+    height:43px;
+    width:43px
+}
