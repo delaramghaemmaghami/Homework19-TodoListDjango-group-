@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     $("#empty").on("click", function () {
-        send_ajax($(this).text())
+        send_ajax($(this).val())
     });
 
     function send_ajax(input_data){
