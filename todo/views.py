@@ -1,4 +1,3 @@
-from django.core import serializers
 from django.db.models import Count
 from django.http import JsonResponse
 from django.shortcuts import render
@@ -95,7 +94,6 @@ class CategoryList(ListView):
 
             if cats:
                 return JsonResponse({
-                    # 'tasks': list(cats.values_list('category_name', flat=True))
                     'tasks': cats,
                 })
             else:
