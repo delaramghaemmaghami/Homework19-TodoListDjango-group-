@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    <title>EXPIRED TASKS</title>
+{% endblock %}
+
+{% block content %}
+    <ul id="mu_ul"></ul>
+{% endblock %}
+
+
+{% block script %}
+<script>
+    var CSRF_TOKEN = '{{ csrf_token }}';
+    var URL = "{% url 'expired_tasks' %}"
+    console.log(URL)
+    console.log(CSRF_TOKEN)
+</script>
+<script type="text/javascript" src={% static "JS/expired.js" %}></script>
+{% endblock %}

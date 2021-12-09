@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    <title>CATEGORY LIST</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+            <table class="table table-striped mt-4 table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            Number
+                        </th>
+
+                        <th scope="col">
+                            Title
+                        </th>
+
+                        <th scope="col">
+                            Description
+                        </th>
+
+                        <th scope="col">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for cat in object_list %}
+                        <tr>
+                            <th scope="row">{{forloop.counter}}</th>
+                            <th >{{cat.category_name}}</th>
+                            <th >{{cat.description}}</th>
+                            <th>
+                                <a href="{% url 'category_detail' cat.pk %}" class="btn btn-warning">View</a>
+                            </th>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        <div class="m-3">
+            <form method="post">
+                {% csrf_token %}
+                <a href="#" class="btn btn-warning" id="empty">EMPTY CATEGORY</a>
+                <a href="#" class="btn btn-warning" id="most">MOST</a>
+            </form>
+        </div>
+        </div>
+        <ul id="mu_ul"></ul>
+{% endblock %}
+
+{% block script %}
+<script>
+    var CSRF_TOKEN = '{{ csrf_token }}';
+    var URL = "{% url 'category_list' %}"
+    console.log(URL)
+    console.log(CSRF_TOKEN)
+</script>
+<script type="text/javascript" src={% static "JS/category.js" %}></script>
+{% endblock %}

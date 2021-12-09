@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>CATEGORY DETAIL</title>
+{% endblock %}
+{% block content %}
+    <div class="container mt-5">
+            <table class="table table-striped mt-4 table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            Title
+                        </th>
+
+                        <th scope="col">
+                            Description
+                        </th>
+
+                        <th scope="col">
+                            Tasks
+                        </th>
+
+                        <th scope="col">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th >{{category.category_name}}</th>
+                        <th >{{category.description}}</th>
+                        <th >
+                            {% for t in tasks%}
+                                {{t.title}} **
+                            {% endfor %}
+                        </th>
+                        <th>
+                            <a href="{% url 'category_list' %}" class="btn btn-danger">Back</a>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+{% endblock %}
