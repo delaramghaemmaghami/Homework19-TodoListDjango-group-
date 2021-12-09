@@ -76,7 +76,7 @@
 {% block script %}
 <script>
     var CSRF_TOKEN = "{{ csrf_token }}";  <!-- JS/ add.js/ ajax -->
-    var URL = "{% url 'add_task' %}";  <!-- JS/ add.js/ ajax -->
+    var URL = "{% url 'add_task' %}";  <!-- JS/ add.js/ ajax (add_task: name of URL)-->
 </script>
 
 <script type="text/javascript" src={% static "JS/add.js" %}></script>
