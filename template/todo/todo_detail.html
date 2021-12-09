@@ -40,7 +40,11 @@
                 <tbody>
                     <tr>
                         <th >{{task.title}}</th>
-                        <th >{{task.category.category_name}}</th>
+                        <th>
+                            {% for cat in task.category.all %}
+                                {{cat}}
+                            {% endfor %}
+                        </th>
                         <th >{{task.priority}}</th>
                         <th >{{task.description}}</th>
                         <th >{{task.create_time}}</th>

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}
     <title>TODO LIST</title>
 {% endblock %}
@@ -36,7 +36,11 @@
                         <tr>
                             <th scope="row">{{forloop.counter}}</th>
                             <th >{{re.title}}</th>
-                            <th >{{re.category.category_name}}</th>
+                            <th>
+                            {% for cat in re.category.all %}
+                                {{cat}}
+                            {% endfor %}
+                            </th>
                             <th >{{re.priority}}</th>
                             <th>
                                 <a href="{% url 'todo_detail' re.pk %}" class="btn btn-warning">View</a>
@@ -45,5 +49,24 @@
                     {% endfor %}
                 </tbody>
             </table>
+        <div class="m-3">
+            <form method="post">
+                {% csrf_token %}
+                <a href="#" class="btn btn-warning" id="progress">IN PROGRESS</a>
+                <a href="#" class="btn btn-warning" id="expired">EXPIRED</a>
+                <a href="#" class="btn btn-warning" id="last">LAST 3 TASKS</a>
+            </form>
         </div>
+        </div>
+        <ul id="mu_ul"></ul>
+{% endblock %}
+
+{% block script %}
+<script>
+    var CSRF_TOKEN = '{{ csrf_token }}';
+    var URL = "{% url 'todo_list' %}"
+    console.log(URL)
+    console.log(CSRF_TOKEN)
+</script>
+<script type="text/javascript" src={% static "JS/expired.js" %}></script>
 {% endblock %}
