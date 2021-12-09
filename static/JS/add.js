@@ -1,7 +1,5 @@
-$(document).ready(function () {
-    console.log(URL)
-
-    $("#add_task").submit(function (event) {
+$(document).ready(function () {  //creates an API for add_task.html
+    $("#add_task").submit(function (event) {  //add_task is the ID of form in add_task.html
         event.preventDefault()
 
         $.ajax({
